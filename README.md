@@ -2,7 +2,8 @@
 
 通常在访问远程服务器时一般是通过ssh协议来远程登录，本地使用的客户端如如mac的iterm或windows的xshell，这样安装起来也比较麻烦，有没有想过通过浏览器就能实现操作服务器呢？本文介绍下基于websocket和linux pty实现的web终端及实现，下面会简称为webshell，首先给大家展示下实际效果：在启动项目`go run main.go`后，在浏览器访问本地（或实际IP）的8080端口后访问
 
-![屏幕录制2023-05-02+09.48.19.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/35e185ff55fe4defbf5da535acd9ef09~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![image](https://github.com/nopunk/webshell/assets/3422759/eaa5ff39-9edf-4d11-81c9-1bcd5e09d4e3)
+
 
 # websocket协议
 
@@ -40,7 +41,7 @@ Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=
 
 此时就已经建立了好ws连接了，客户端和服务端可以双向通信了。下面是关于一个ws应用的抓包数据，从图中可以看到ws连接通过一次HTTP请求即可建立
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a5d0c0c684384375a84e544a14431b11~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![image](https://github.com/nopunk/webshell/assets/3422759/eeba4cd4-16e6-46a4-905e-8288db638a15)
 
 # pty虚拟终端
 
@@ -283,4 +284,4 @@ xml
 
 实际效果：用tree打印出项目的目录结构
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2714052bf4a249978340a95b56d9a3f5~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![image](https://github.com/nopunk/webshell/assets/3422759/558a5c7a-f5e5-4b2b-a260-98e669e10cbe)
